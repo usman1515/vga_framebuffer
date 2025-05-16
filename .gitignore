@@ -1,0 +1,29 @@
+.vscode
+
+# vivado projects
+basys3*
+
+# vivado binaries
+.Xil
+-p
+.gen
+.srcs
+xsim.dir
+
+# bitstreams generated
+*.bit
+
+# vivado logs
+*.jou
+*.log
+*.str
+
+# testbench simulation dumps
+*.vcd
+*.wdb
+*.zip
+*.xml
+*.pb
+
+# checkpoints, reports, logs
+bin
