@@ -63,5 +63,17 @@ package rtl_components is
         );
     end component top_square_vga;
 
+    component top_ansi_color_palette_vga is
+        port (
+            clk : in std_logic;
+            rst_n : in std_logic;
+            o_vga_hsync : out std_logic;
+            o_vga_vsync : out std_logic;
+            o_vga_r : out std_logic_vector(3 downto 0);
+            o_vga_g : out std_logic_vector(3 downto 0);
+            o_vga_b : out std_logic_vector(3 downto 0)
+        );
+    end component top_ansi_color_palette_vga;
+
 end package rtl_components;
 

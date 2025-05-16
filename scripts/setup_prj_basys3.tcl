@@ -47,7 +47,8 @@ add_files -force -fileset sources_1 {
     ./rtl/rtl_components.vhd \
     ./rtl/macro_clk_xlnx.vhd \
     ./rtl/simple_vga.vhd \
-    ./rtl/top_square_vga.vhd
+    ./rtl/top_square_vga.vhd \
+    ./rtl/top_ansi_color_palette_vga.vhd
 }
 
 # convert all VHDL files to VHDL 2008 standard
