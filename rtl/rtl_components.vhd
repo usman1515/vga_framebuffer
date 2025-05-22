@@ -118,5 +118,19 @@ package rtl_components is
         );
     end component macro_bram_sdp_david_monochrome_1bit;
 
+    component macro_bram_sdp_monalisa_monochrome_1bit
+        port (
+            clka : in std_logic;
+            ena : in std_logic;
+            wea : in std_logic_vector(0 downto 0);
+            addra : in std_logic_vector(17 downto 0);
+            dina : in std_logic_vector(7 downto 0);
+            clkb : in std_logic;
+            enb : in std_logic;
+            addrb : in std_logic_vector(17 downto 0);
+            doutb : out std_logic_vector(7 downto 0)
+        );
+    end component;
+
 end package rtl_components;
 
