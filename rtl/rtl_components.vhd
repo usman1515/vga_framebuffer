@@ -132,5 +132,23 @@ package rtl_components is
         );
     end component;
 
+    component ram_sdp_smpte_colorbars_1bit is
+        generic (
+            DATA_WIDTH : integer;
+            ADDR_WIDTH : integer
+        );
+        port (
+            clka : in std_logic;
+            i_ena : in std_logic;
+            i_wea : in std_logic;
+            i_addra : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            i_dina : in std_logic_vector(DATA_WIDTH-1 downto 0);
+            clkb : in std_logic;
+            i_enb : in std_logic;
+            i_addrb : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            o_doutb : out std_logic_vector(DATA_WIDTH-1 downto 0)
+        );
+    end component;
+
 end package rtl_components;
 
