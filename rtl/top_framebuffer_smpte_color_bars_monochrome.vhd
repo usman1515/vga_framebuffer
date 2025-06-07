@@ -3,7 +3,7 @@
 -- Engineer:
 --
 -- Design Name:
--- Module Name: top_framebuffer_smpte_colorbars_1bit - Behavioral
+-- Module Name: top_framebuffer_smpte_colorbars_monochrome - Behavioral
 -- Project Name:
 -- Target Devices:
 -- Tool Versions: 2021.2
@@ -26,7 +26,7 @@ use work.rtl_components.all;
 
 
 
-entity top_framebuffer_smpte_colorbars_1bit is
+entity top_framebuffer_smpte_colorbars_monochrome is
     port (
         clk : in std_logic;
         rst_n : in std_logic;
@@ -37,9 +37,9 @@ entity top_framebuffer_smpte_colorbars_1bit is
         o_vga_b : out std_logic_vector(3 downto 0);
         o_locked : out std_logic
     );
-end entity top_framebuffer_smpte_colorbars_1bit;
+end entity top_framebuffer_smpte_colorbars_monochrome;
 
-architecture rtl of top_framebuffer_smpte_colorbars_1bit is
+architecture rtl of top_framebuffer_smpte_colorbars_monochrome is
 
     constant COORDINATE_WIDTH : integer := 16;
 
@@ -124,7 +124,7 @@ begin
     w_paint_area <= '1' when (w_sy >= 0 and w_sy < FB_HEIGHT and w_sx >= 0 and w_sx < FB_WIDTH) else '0';
 
     -- instantiate framebuffer: vivado BRAM simple dual port read only
-    INST_framebuffer : ram_sdp_smpte_colorbars_1bit
+    INST_framebuffer : ram_sdp_smpte_colorbars_monochrome
     generic map(
         DATA_WIDTH => FB_DATA_WIDTH,
         ADDR_WIDTH => FB_ADDR_WIDTH

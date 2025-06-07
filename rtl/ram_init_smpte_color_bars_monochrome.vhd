@@ -3,7 +3,7 @@
 -- Engineer:
 --
 -- Design Name:
--- Module Name: ram_init_smpte_color_bars_depth1 - Behavioral
+-- Module Name: ram_init_smpte_color_bars_monochrome - Behavioral
 -- Project Name:
 -- Target Devices:
 -- Tool Versions: 2021.2
@@ -22,7 +22,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-package ram_init_smpte_color_bars_depth1 is
+package ram_init_smpte_color_bars_monochrome is
 
     constant FB_WIDTH : integer := 640;
     constant FB_HEIGHT : integer := 480;
@@ -38438,8 +38438,7 @@ package ram_init_smpte_color_bars_depth1 is
         "0",    "0",    "0",    "0",    "0",    "0",    "0",    "0",
         "0",    "0",    "0",    "0",    "0",    "0",    "0",    "0",
         "0",    "0",    "0",    "0",    "0",    "0",    "0",    "0"
+    );
 
-        );
-
-end package ram_init_smpte_color_bars_depth1;
+end package ram_init_smpte_color_bars_monochrome;
 

@@ -3,7 +3,7 @@
 -- Engineer:
 --
 -- Design Name:
--- Module Name: ram_sdp_smpte_colorbars_1bit - Behavioral
+-- Module Name: ram_sdp_smpte_colorbars_monochrome - Behavioral
 -- Project Name:
 -- Target Devices:
 -- Tool Versions: 2021.2
@@ -23,10 +23,10 @@ use IEEE.numeric_std.all;
 
 library work;
 use work.rtl_components.all;
-use work.ram_init_smpte_color_bars_depth1.all;
+use work.ram_init_smpte_color_bars_monochrome.all;
 
 
-entity ram_sdp_smpte_colorbars_1bit is
+entity ram_sdp_smpte_colorbars_monochrome is
     generic (
         DATA_WIDTH : integer := 1;  --4;
         ADDR_WIDTH : integer := 19
@@ -45,9 +45,9 @@ entity ram_sdp_smpte_colorbars_1bit is
         i_addrb : in std_logic_vector(ADDR_WIDTH-1 downto 0);
         o_doutb : out std_logic_vector(DATA_WIDTH-1 downto 0)
     );
-end entity ram_sdp_smpte_colorbars_1bit;
+end entity ram_sdp_smpte_colorbars_monochrome;
 
-architecture rtl of ram_sdp_smpte_colorbars_1bit is
+architecture rtl of ram_sdp_smpte_colorbars_monochrome is
 
     constant DEPTH : integer := 640*480;
     subtype addr_t is integer range 0 to DEPTH - 1;
