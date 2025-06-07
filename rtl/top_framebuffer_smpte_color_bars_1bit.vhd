@@ -63,7 +63,7 @@ architecture rtl of top_framebuffer_smpte_colorbars_1bit is
     constant FB_HEIGHT : integer := 480;                    -- frambuffer pixel height
     constant FB_PIXELS : integer := FB_WIDTH * FB_HEIGHT;   -- total framebuffer pixels
     constant FB_ADDR_WIDTH : integer := 19;                 -- address width
-    constant FB_DATA_WIDTH : integer := 4; --1;                  -- color bits per pixel
+    constant FB_DATA_WIDTH : integer := 1;                  -- color bits per pixel
 
     -- pixel read address and color
     signal w_fb_addr_read : std_logic_vector(FB_ADDR_WIDTH-1 downto 0) := (others => '0');
@@ -147,10 +147,6 @@ begin
             w_paint_r <= (others => w_fb_color_read(0));
             w_paint_g <= (others => w_fb_color_read(0));
             w_paint_b <= (others => w_fb_color_read(0));
-
-            -- w_paint_r <= w_fb_color_read(FB_DATA_WIDTH-1 downto 0);
-            -- w_paint_g <= w_fb_color_read(FB_DATA_WIDTH-1 downto 0);
-            -- w_paint_b <= w_fb_color_read(FB_DATA_WIDTH-1 downto 0);
         else
             w_paint_r <= BACKGND_COLOR(11 downto 8);
             w_paint_g <= BACKGND_COLOR(7 downto 4);

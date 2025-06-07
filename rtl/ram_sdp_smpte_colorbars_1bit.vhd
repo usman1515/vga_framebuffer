@@ -28,7 +28,7 @@ use work.ram_init_smpte_color_bars_depth1.all;
 
 entity ram_sdp_smpte_colorbars_1bit is
     generic (
-        DATA_WIDTH : integer := 4;   --1;
+        DATA_WIDTH : integer := 1;  --4;
         ADDR_WIDTH : integer := 19
     );
     port (
