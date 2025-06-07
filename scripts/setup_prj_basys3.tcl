@@ -10,11 +10,6 @@ set prj_name "basys3_vga_frame_buffer"
 set part "xc7a35tcpg236-1"
 set board_part "digilentinc.com:basys3:part0:1.2"
 
-# set project name and FPGA (Nexys A7 100T)
-# set prj_name "nexys_video_genome_flow"
-# set part "xc7a200tsbg484-1"
-# set board_part "digilentinc.com:nexys_video:part0:1.2"
-
 # set language
 set tb_lang "VHDL"
 set rtl_lang "VHDL"
@@ -54,8 +49,27 @@ add_files -force -fileset sources_1 {
     ./rtl/top_color_gradient_vga.vhd \
     ./rtl/display_480p.vhd \
     ./rtl/top_framebuffer_david_monochrome_1bit.vhd \
-    ./rtl/top_framebuffer_monalisa_monochrome_1bit.vhd
+    ./rtl/top_framebuffer_monalisa_monochrome_1bit.vhd \
+
+    ./rtl/clut_color.vhd \
+    ./rtl/clut_grayscale.vhd \
+
+    ./rtl/top_framebuffer_smpte_color_bars_monochrome.vhd \
+    ./rtl/ram_sdp_smpte_colorbars_monochrome.vhd \
+    ./rtl/ram_init_smpte_color_bars_monochrome.vhd \
+
+    ./rtl/top_framebuffer_smpte_color_bars_grayscale.vhd \
+    ./rtl/ram_sdp_smpte_colorbars_grayscale.vhd \
+    ./rtl/ram_init_smpte_color_bars_grayscale.vhd \
+
+    ./rtl/top_framebuffer_smpte_color_bars_tty16.vhd \
+    ./rtl/ram_sdp_smpte_colorbars_tty16.vhd \
+    ./rtl/ram_init_smpte_color_bars_tty16.vhd
 }
+
+    # ./rtl/top_framebuffer_phillips_pm5544_1bit.vhd \
+    # ./rtl/ram_sdp_phillips_pm5544_1bit.vhd \
+    # ./rtl/ram_init_phillips_pm5544_depth1.vhd \
 
 # convert all VHDL files to VHDL 2008 standard
 print_yellow "converting all VHDL files to VHDL 2008 standard"
