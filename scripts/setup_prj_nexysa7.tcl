@@ -37,6 +37,7 @@ print_yellow "adding IP blocks"
 # add_files -norecurse ./ip/xlnx_clk_gen_basys3_25mhz.xci
 source ./scripts/create_macro_bram_sdp_ram_v1.tcl -notrace
 source ./scripts/create_macro_bram_sdp_ram_v2.tcl -notrace
+source ./scripts/create_macro_bram_sdp_ram_v3.tcl -notrace
 
 # add VHDL rtl source files to the project
 print_yellow "adding RTL source files"
@@ -64,12 +65,20 @@ add_files -force -fileset sources_1 {
 
     ./rtl/top_framebuffer_smpte_color_bars_tty16.vhd \
     ./rtl/ram_sdp_smpte_colorbars_tty16.vhd \
-    ./rtl/ram_init_smpte_color_bars_tty16.vhd
-}
+    ./rtl/ram_init_smpte_color_bars_tty16.vhd \
 
-    # ./rtl/top_framebuffer_phillips_pm5544_1bit.vhd \
-    # ./rtl/ram_sdp_phillips_pm5544_1bit.vhd \
-    # ./rtl/ram_init_phillips_pm5544_depth1.vhd \
+    ./rtl/top_framebuffer_phillips_pm5544_monochrome.vhd \
+    ./rtl/ram_sdp_phillips_pm5544_monochrome.vhd \
+    ./rtl/ram_init_phillips_pm5544_monochrome.vhd \
+
+    ./rtl/top_framebuffer_phillips_pm5544_grayscale.vhd \
+    ./rtl/ram_sdp_phillips_pm5544_grayscale.vhd \
+    ./rtl/ram_init_phillips_pm5544_grayscale.vhd \
+
+    ./rtl/top_framebuffer_phillips_pm5544_tty16.vhd \
+    ./rtl/ram_sdp_phillips_pm5544_tty16.vhd \
+    ./rtl/ram_init_phillips_pm5544_tty16.vhd
+}
 
 # convert all VHDL files to VHDL 2008 standard
 print_yellow "converting all VHDL files to VHDL 2008 standard"

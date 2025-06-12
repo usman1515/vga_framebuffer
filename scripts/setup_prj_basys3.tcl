@@ -64,12 +64,20 @@ add_files -force -fileset sources_1 {
 
     ./rtl/top_framebuffer_smpte_color_bars_tty16.vhd \
     ./rtl/ram_sdp_smpte_colorbars_tty16.vhd \
-    ./rtl/ram_init_smpte_color_bars_tty16.vhd
-}
+    ./rtl/ram_init_smpte_color_bars_tty16.vhd \
 
-    # ./rtl/top_framebuffer_phillips_pm5544_1bit.vhd \
-    # ./rtl/ram_sdp_phillips_pm5544_1bit.vhd \
-    # ./rtl/ram_init_phillips_pm5544_depth1.vhd \
+    ./rtl/top_framebuffer_phillips_pm5544_monochrome.vhd \
+    ./rtl/ram_sdp_phillips_pm5544_monochrome.vhd \
+    ./rtl/ram_init_phillips_pm5544_monochrome.vhd \
+
+    ./rtl/top_framebuffer_phillips_pm5544_grayscale.vhd \
+    ./rtl/ram_sdp_phillips_pm5544_grayscale.vhd \
+    ./rtl/ram_init_phillips_pm5544_grayscale.vhd \
+
+    ./rtl/top_framebuffer_phillips_pm5544_tty16.vhd \
+    ./rtl/ram_sdp_phillips_pm5544_tty16.vhd \
+    ./rtl/ram_init_phillips_pm5544_tty16.vhd
+}
 
 # convert all VHDL files to VHDL 2008 standard
 print_yellow "converting all VHDL files to VHDL 2008 standard"
@@ -114,3 +122,4 @@ report_compile_order -fileset constrs_1
 
 # close the project
 close_project
+
