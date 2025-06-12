@@ -36,6 +36,7 @@ truecolor_grade:
 	magick convert ./images/mona_lisa.bmp -type truecolor -colors 4 -depth 2 -resize '640x480>' ./images/mona_lisa_truecolor_v2.bmp
 	magick convert ./images/mona_lisa.bmp -type truecolor -colors 8 -depth 3 -resize '640x480>' ./images/mona_lisa_truecolor_v3.bmp
 	magick convert ./images/mona_lisa.bmp -type truecolor -colors 16 -depth 4 -resize '640x480>' ./images/mona_lisa_truecolor_v4.bmp
+	magick convert ./images/philips_pm5544.png -type truecolor -colors 32 -resize '640x480>' ./images/philips_pm5544_32colors.png
 
 grayscale_grade:
 	magick convert ./images/mona_lisa.bmp -colorspace gray -colors 2 -depth 1 -resize '640x480>' ./images/mona_lisa_monochrome.bmp
@@ -65,7 +66,7 @@ run_vivado_basys3:
 run_vivado_nexysa7:
 	@ rm -rf .gen .srcs
 	@ vivado -mode batch -nojournal -notrace -stack 2000 \
-		-source ./scripts/main_basys3.tcl -tclargs \
+		-source ./scripts/main_nexysa7.tcl -tclargs \
 		$(synth) $(impl_1) $(impl_2) $(impl_3) $(impl_4) $(impl_5) $(bitstream)
 
 # upload bitstream
