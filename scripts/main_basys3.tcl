@@ -8,12 +8,29 @@ set current_datetime [clock format [clock seconds] -format "%Y-%m-%d_%H:%M:%S"]
 
 # * pwd
 set prj_dir             [pwd]
-set prj_name            [file tail $prj_dir]
 
-# * vars global - fpga and board part num - nexys a7 100t
+# vars global - fpga and board part num - basys 3
+set prj_name            "basys3_vga_frame_buffer"
 set fpga_part_name      "xc7a35tcpg236-1"
 set board_part_name     "digilentinc.com:basys3:part0:1.2"
-set top_module_rtl      "top_square_vga"
+
+# NOTE: these work in batch mode
+
+# set top_module_rtl      "top_square_vga"
+# set top_module_rtl      "top_ansi_color_palette_vga"
+# set top_module_rtl      "top_color_gradient_vga"
+# set top_module_rtl      "top_framebuffer_smpte_colorbars_monochrome"
+# set top_module_rtl      "top_framebuffer_smpte_colorbars_grayscale"
+# set top_module_rtl      "top_framebuffer_smpte_colorbars_tty16"
+# set top_module_rtl      "top_framebuffer_phillips_pm5544_monochrome"
+# set top_module_rtl      "top_framebuffer_phillips_pm5544_grayscale"
+set top_module_rtl      "top_framebuffer_phillips_pm5544_tty16"
+
+
+# NOTE: these dont work in batch mode
+
+# set top_module_rtl      "top_framebuffer_david_monochrome_1bit"
+# set top_module_rtl      "top_framebuffer_monalisa_gray_1bit"
 
 # vars synthesis
 set name_run_synth      "run_synthesis"
@@ -132,7 +149,8 @@ write_checkpoint -force ${dir_chkp}/${name_chkp_synth}.dcp
 
 # opt_design
 print_yellow "running implementation phase: opt_design"
-opt_design -directive Default -verbose -debug_log
+# opt_design -directive Default -verbose -debug_log
+opt_design -aggressive_remap -resynth_remap -verbose -debug_log
 print_yellow "writing checkpoint: ${name_chkp_impl1}"
 write_checkpoint -force ${dir_chkp}/${name_chkp_impl1}.dcp
 
@@ -144,7 +162,8 @@ write_checkpoint -force ${dir_chkp}/${name_chkp_impl2}.dcp
 
 # place_design
 print_yellow "running implementation phase: place_design"
-place_design -directive Default -verbose -debug_log
+# place_design -directive Default -verbose -debug_log
+place_design -directive Auto_1 -verbose -debug_log
 print_yellow "writing checkpoint: ${name_chkp_impl3}"
 write_checkpoint -force ${dir_chkp}/${name_chkp_impl3}.dcp
 
@@ -156,7 +175,8 @@ write_checkpoint -force ${dir_chkp}/${name_chkp_impl4}.dcp
 
 # route_design
 print_yellow "running implementation phase: route_design"
-route_design -directive Default -tns_cleanup -verbose
+# route_design -directive Default -tns_cleanup -verbose
+route_design -directive AggressiveExplore -tns_cleanup -timing_summary -verbose
 print_yellow "writing checkpoint: ${name_chkp_impl5}"
 write_checkpoint -force ${dir_chkp}/${name_chkp_impl5}.dcp
 
