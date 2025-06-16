@@ -63,5 +63,60 @@ package rtl_components is
         );
     end component top_square_vga;
 
+    component top_ansi_color_palette_vga is
+        port (
+            clk : in std_logic;
+            rst_n : in std_logic;
+            o_vga_hsync : out std_logic;
+            o_vga_vsync : out std_logic;
+            o_vga_r : out std_logic_vector(3 downto 0);
+            o_vga_g : out std_logic_vector(3 downto 0);
+            o_vga_b : out std_logic_vector(3 downto 0)
+        );
+    end component top_ansi_color_palette_vga;
+
+    component top_color_gradient_vga is
+        port (
+            clk : in std_logic;
+            rst_n : in std_logic;
+            o_vga_hsync : out std_logic;
+            o_vga_vsync : out std_logic;
+            o_vga_r : out std_logic_vector(3 downto 0);
+            o_vga_g : out std_logic_vector(3 downto 0);
+            o_vga_b : out std_logic_vector(3 downto 0)
+        );
+    end component top_color_gradient_vga;
+
+    component display_480p is
+        generic (
+            COORDINATE_WIDTH : integer
+        );
+        port (
+            i_clk_pixel : in std_logic;
+            i_rst_pixel : in std_logic;
+            o_sx        : out signed(COORDINATE_WIDTH-1 downto 0);
+            o_sy        : out signed(COORDINATE_WIDTH-1 downto 0);
+            o_hsync     : out std_logic;
+            o_vsync     : out std_logic;
+            o_data_en   : out std_logic;
+            o_frame     : out std_logic;
+            o_line      : out std_logic
+        );
+    end component;
+
+    component macro_bram_sdp_david_monochrome_1bit
+        port (
+            clka : in std_logic;
+            ena : in std_logic;
+            wea : in std_logic_vector(0 downto 0);
+            addra : in std_logic_vector(14 downto 0);
+            dina : in std_logic_vector(0 downto 0);
+            clkb : in std_logic;
+            enb : in std_logic;
+            addrb : in std_logic_vector(14 downto 0);
+            doutb : out std_logic_vector(0 downto 0)
+        );
+    end component macro_bram_sdp_david_monochrome_1bit;
+
 end package rtl_components;
 

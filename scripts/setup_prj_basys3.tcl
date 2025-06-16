@@ -40,6 +40,7 @@ set_property simulator_language $tb_lang [current_project]
 # add xilinx IP blocks
 print_yellow "adding IP blocks"
 # add_files -norecurse ./ip/xlnx_clk_gen_basys3_25mhz.xci
+# source ./scripts/create_macro_mmcm_clk.tcl -notrace
 
 # add VHDL rtl source files to the project
 print_yellow "adding RTL source files"
@@ -47,7 +48,11 @@ add_files -force -fileset sources_1 {
     ./rtl/rtl_components.vhd \
     ./rtl/macro_clk_xlnx.vhd \
     ./rtl/simple_vga.vhd \
-    ./rtl/top_square_vga.vhd
+    ./rtl/top_square_vga.vhd \
+    ./rtl/top_ansi_color_palette_vga.vhd \
+    ./rtl/top_color_gradient_vga.vhd \
+    ./rtl/display_480p.vhd \
+    ./rtl/top_framebuffer_david_monochrome_1bit.vhd
 }
 
 # convert all VHDL files to VHDL 2008 standard
