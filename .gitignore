@@ -2,6 +2,7 @@
 
 # vivado projects
 basys3*
+nexys*
 
 # vivado binaries
 .Xil
@@ -9,6 +10,8 @@ basys3*
 .gen
 .srcs
 xsim.dir
+ip
+*/*.bak
 
 # bitstreams generated
 *.bit
@@ -27,3 +30,9 @@ xsim.dir
 
 # checkpoints, reports, logs
 bin
+
+# others
+coetool-v01.tar.gz
+coetool-v01
+*.tmp
+.venv

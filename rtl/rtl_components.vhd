@@ -102,9 +102,9 @@ package rtl_components is
             o_frame     : out std_logic;
             o_line      : out std_logic
         );
-    end component;
+    end component display_480p;
 
-    component macro_bram_sdp_david_monochrome_1bit
+    component macro_bram_sdp_david_monochrome_1bit is
         port (
             clka : in std_logic;
             ena : in std_logic;
@@ -117,6 +117,124 @@ package rtl_components is
             doutb : out std_logic_vector(0 downto 0)
         );
     end component macro_bram_sdp_david_monochrome_1bit;
+
+    component macro_bram_sdp_monalisa_monochrome_1bit is
+        port (
+            clka : in std_logic;
+            ena : in std_logic;
+            wea : in std_logic_vector(0 downto 0);
+            addra : in std_logic_vector(17 downto 0);
+            dina : in std_logic_vector(7 downto 0);
+            clkb : in std_logic;
+            enb : in std_logic;
+            addrb : in std_logic_vector(17 downto 0);
+            doutb : out std_logic_vector(7 downto 0)
+        );
+    end component macro_bram_sdp_monalisa_monochrome_1bit;
+
+    component clut_grayscale is
+        port (
+            i_index : in std_logic_vector(3 downto 0);
+            o_color : out std_logic_vector(11 downto 0)
+        );
+    end component clut_grayscale;
+
+    component clut_color is
+        port (
+            i_index : in std_logic_vector(3 downto 0);
+            o_color : out std_logic_vector(11 downto 0)
+        );
+    end component clut_color;
+
+    component ram_sdp_smpte_colorbars_monochrome is
+        generic (
+            DATA_WIDTH : integer;
+            ADDR_WIDTH : integer
+        );
+        port (
+            clka : in std_logic;
+            i_ena : in std_logic;
+            i_wea : in std_logic;
+            i_addra : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            i_dina : in std_logic_vector(DATA_WIDTH-1 downto 0);
+            clkb : in std_logic;
+            i_enb : in std_logic;
+            i_addrb : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            o_doutb : out std_logic_vector(DATA_WIDTH-1 downto 0)
+        );
+    end component ram_sdp_smpte_colorbars_monochrome;
+
+    component ram_sdp_smpte_colorbars_grayscale is
+        generic (
+            DATA_WIDTH : integer;
+            ADDR_WIDTH : integer
+        );
+        port (
+            clka : in std_logic;
+            i_ena : in std_logic;
+            i_wea : in std_logic;
+            i_addra : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            i_dina : in std_logic_vector(DATA_WIDTH-1 downto 0);
+            clkb : in std_logic;
+            i_enb : in std_logic;
+            i_addrb : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            o_doutb : out std_logic_vector(DATA_WIDTH-1 downto 0)
+        );
+    end component ram_sdp_smpte_colorbars_grayscale;
+
+    component ram_sdp_smpte_colorbars_tty16 is
+        generic (
+            DATA_WIDTH : integer;
+            ADDR_WIDTH : integer
+        );
+        port (
+            clka : in std_logic;
+            i_ena : in std_logic;
+            i_wea : in std_logic;
+            i_addra : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            i_dina : in std_logic_vector(DATA_WIDTH-1 downto 0);
+            clkb : in std_logic;
+            i_enb : in std_logic;
+            i_addrb : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            o_doutb : out std_logic_vector(DATA_WIDTH-1 downto 0)
+        );
+    end component ram_sdp_smpte_colorbars_tty16;
+
+    component ram_sdp_phillips_pm5544_monochrome is
+        generic (
+            DATA_WIDTH : integer;
+            ADDR_WIDTH : integer
+        );
+        port (
+            clka : in std_logic;
+            i_ena : in std_logic;
+            i_wea : in std_logic;
+            i_addra : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            i_dina : in std_logic_vector(DATA_WIDTH-1 downto 0);
+            clkb : in std_logic;
+            i_enb : in std_logic;
+            i_addrb : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            o_doutb : out std_logic_vector(DATA_WIDTH-1 downto 0)
+        );
+    end component ram_sdp_phillips_pm5544_monochrome;
+
+    component ram_sdp_phillips_pm5544_grayscale is
+        generic (
+            DATA_WIDTH : integer;
+            ADDR_WIDTH : integer
+        );
+        port (
+            clka : in std_logic;
+            i_ena : in std_logic;
+            i_wea : in std_logic;
+            i_addra : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            i_dina : in std_logic_vector(DATA_WIDTH-1 downto 0);
+            clkb : in std_logic;
+            i_enb : in std_logic;
+            i_addrb : in std_logic_vector(ADDR_WIDTH-1 downto 0);
+            o_doutb : out std_logic_vector(DATA_WIDTH-1 downto 0)
+        );
+    end component ram_sdp_phillips_pm5544_grayscale;
 
 end package rtl_components;
 

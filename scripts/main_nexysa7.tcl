@@ -9,10 +9,10 @@ set current_datetime [clock format [clock seconds] -format "%Y-%m-%d_%H:%M:%S"]
 # * pwd
 set prj_dir             [pwd]
 
-# vars global - fpga and board part num - basys 3
-set prj_name            "basys3_vga_frame_buffer"
-set fpga_part_name      "xc7a35tcpg236-1"
-set board_part_name     "digilentinc.com:basys3:part0:1.2"
+# vars global - fpga and board part num - nexys a7 100t
+set prj_name            "nexysa7_vga_frame_buffer"
+set fpga_part_name      "xc7a100tcsg324-1"
+set board_part_name     "digilentinc.com:nexys-a7-100t:part0:1.0"
 
 # NOTE: these work in batch mode
 
@@ -124,7 +124,8 @@ read_vhdl -library xil_defaultlib -vhdl2008 -verbose $vhdl_files
 # read constraint files
 print_yellow "reading constraint file/s"
 print_blue "reading constraint sources for Basys3"
-read_xdc ${dir_constraint}/io_basys3.xdc
+# read_xdc ${dir_constraint}/io_basys3.xdc
+read_xdc ${dir_constraint}/io_nexys_a7_100t.xdc
 
 # set top module RTL
 print_yellow "setting top module RTL and updating compilation order"

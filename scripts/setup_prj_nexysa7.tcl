@@ -5,10 +5,10 @@
 
 source ./scripts/color_func.tcl -notrace
 
-# # set project name and FPGA (Basys 3)
-set prj_name "basys3_vga_frame_buffer"
-set part "xc7a35tcpg236-1"
-set board_part "digilentinc.com:basys3:part0:1.2"
+# set project name and FPGA (Nexys A7 100T)
+set prj_name "nexysa7_vga_frame_buffer"
+set part "xc7a100tcsg324-1"
+set board_part "digilentinc.com:nexys-a7-100t:part0:1.0"
 
 # set language
 set tb_lang "VHDL"
@@ -37,6 +37,7 @@ print_yellow "adding IP blocks"
 # add_files -norecurse ./ip/xlnx_clk_gen_basys3_25mhz.xci
 source ./scripts/create_macro_bram_sdp_ram_v1.tcl -notrace
 source ./scripts/create_macro_bram_sdp_ram_v2.tcl -notrace
+source ./scripts/create_macro_bram_sdp_ram_v3.tcl -notrace
 
 # add VHDL rtl source files to the project
 print_yellow "adding RTL source files"
@@ -106,7 +107,7 @@ set_property top ${top_module_tb} [current_fileset]
 # add constraint files to the project
 print_yellow "adding constraint files for IO, timing, etc"
 # top level IO constraints
-add_files -fileset constrs_1 ./constraints/io_basys3.xdc
+add_files -fileset constrs_1 ./constraints/io_nexys_a7_100t.xdc
 
 # update to set top and file compile order
 print_yellow "update compilation order"
